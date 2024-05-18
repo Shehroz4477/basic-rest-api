@@ -28,13 +28,13 @@ public class PostService
     {
         return Task.FromResult(AllPosts);
     }
-    public Task DeletePost(int id)
+    public Task<Post?> DeletePost(int id)
     {
         var post = AllPosts.FirstOrDefault(x => x.Id == id);
         if (post != null)
         {
             AllPosts.Remove(post);
         }
-        return Task.CompletedTask;
+        return Task.FromResult(post);
     }
 }
