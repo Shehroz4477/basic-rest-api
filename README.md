@@ -21,3 +21,8 @@
 
 # To support HTTPS, you may need to trust the HTTPS development certifi-cate by running the following command:
 #### dotnet dev-certs https --trust
+
+# Changing the port number
+#### 1. open launchSettings.json file in the Properties folder
+#### 2. 5000 to 5300 for HTTP
+#### 3. 7000 to 7300 for HTTPS
