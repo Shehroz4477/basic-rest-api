@@ -1,3 +1,4 @@
+
 using basic_rest_api.Models;
 using basic_rest_api.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ namespace basic_rest_api.Controllers;
 public class PostsController : ControllerBase
 {
     private readonly PostService _postService;
-    public PostsController(PostService postService)
+    public PostsController()
     {
         // Note that we use the new() constructor to create an instance of the service. 
         // That means the controller is coupled with the PostsService class. 
