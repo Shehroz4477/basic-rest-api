@@ -33,8 +33,6 @@ public class PostsController : ControllerBase
     public async Task<ActionResult<Post>> CreatePost(Post post)
     {
         await _postService.CreatePost(post);
-        Console.WriteLine(nameof(GetPost));
-        Console.WriteLine(nameof(PostsController));
         // the built-in CreatedAtAction, which returns a response message with the specified action name, 
         // route values, and post. For this case, it will call the GetPost() action to return the newly 
         // created post.
