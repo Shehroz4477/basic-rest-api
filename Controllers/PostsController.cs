@@ -54,4 +54,9 @@ public class PostsController : ControllerBase
         }
         return Ok(post);
     }
+    [HttpGet]
+    public async Task<ActionResult<List<Post>>> GetPosts()
+    {
+        return Ok(await _postService.GetAllPosts());
+    }
 }
