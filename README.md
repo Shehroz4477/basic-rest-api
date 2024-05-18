@@ -45,3 +45,8 @@
 #### You can manually add it, or install the dotnet-aspnet-codegenerator tool to create it. To install the tool, run the following commands from the project folder:
 ##### 1. dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 ##### 2. dotnet tool install -g dotnet-aspnet-codegenerator
+
+# TARGET-TYPED NEW EXPRESSIONS
+#### 1. This feature was introduced in C# 9.0.
+#### 2. When the list is declared as List<Post>, the type is known, so it is not necessary to use new Post() here when adding new elements. The type specification can be omitted for constructors, such as new().
+
