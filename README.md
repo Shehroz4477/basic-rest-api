@@ -26,3 +26,17 @@
 #### 1. open launchSettings.json file in the Properties folder
 #### 2. 5000 to 5300 for HTTP
 #### 3. 7000 to 7300 for HTTPS
+
+# FILE-SCOPED NAMESPACE DECLARATION
+#### 1. From C# 10, you can use a new form of namespace declaration,
+#### 2. file-scoped namespace declaration. 
+#### 3. All the members in this file are in the same namespace. It saves space and reduces indentation.
+
+# NULLABLE REFERENCE TYPES
+#### 1. You may be wondering why we assign an empty string to the Title and Body properties. 
+#### 2. This is because the properties are of type string. 
+#### 3. If we do not initialize the property, the compiler will complain:
+
+# Non-nullable property 'Title' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.
+#### 1. Nullable reference types were introduced in C# 8.0. They can minimize the likelihood of errors that cause the runtime to throw a System.NullReferenceException error. 
+#### 2. By default, the ASP.NET Core web API project template enabled the nullable reference types annotation in the project properties. If you check the project file, you will find <Nullable>enable</Nullable> in the <PropertyGroup> section.
