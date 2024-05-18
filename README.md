@@ -18,3 +18,6 @@
 #### dotnet new webapi -n basic-rest-api -controllers
 #### cd basic-rest-api
 #### code .
+
+# To support HTTPS, you may need to trust the HTTPS development certifi-cate by running the following command:
+#### dotnet dev-certs https --trust
