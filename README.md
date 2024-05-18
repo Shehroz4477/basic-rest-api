@@ -40,3 +40,8 @@
 # Non-nullable property 'Title' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.
 #### 1. Nullable reference types were introduced in C# 8.0. They can minimize the likelihood of errors that cause the runtime to throw a System.NullReferenceException error. 
 #### 2. By default, the ASP.NET Core web API project template enabled the nullable reference types annotation in the project properties. If you check the project file, you will find <Nullable>enable</Nullable> in the <PropertyGroup> section.
+
+# Create a new file named PostController.cs in the Controllers folder
+#### You can manually add it, or install the dotnet-aspnet-codegenerator tool to create it. To install the tool, run the following commands from the project folder:
+##### 1. dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+##### 2. dotnet tool install -g dotnet-aspnet-codegenerator
