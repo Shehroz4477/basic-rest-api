@@ -1,4 +1,5 @@
 
+using basic_rest_api.Interfaces;
 using basic_rest_api.Models;
 using basic_rest_api.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -9,13 +10,13 @@ namespace basic_rest_api.Controllers;
 [ApiController]
 public class PostsController : ControllerBase
 {
-    private readonly PostService _postService;
-    public PostsController()
+    private readonly IPostService _postService;
+    public PostsController(IPostService postService)
     {
         // Note that we use the new() constructor to create an instance of the service. 
         // That means the controller is coupled with the PostsService class. 
         // We will see how to decouple the controller and the service in the DI concept.
-        _postService = new PostService();
+        _postService = postService;
     }
     //  [HttpGet("{id}")] attribute to indicate the URL of the operation. 
     //  The URL will be mapped to /api/posts/{id}.

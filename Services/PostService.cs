@@ -1,7 +1,8 @@
+using basic_rest_api.Interfaces;
 using basic_rest_api.Models;
 
 namespace basic_rest_api.Services;
-public class PostService
+public class PostService : IPostService
 {
     private static readonly List<Post> AllPosts = new();
     public Task CreatePost(Post item)
