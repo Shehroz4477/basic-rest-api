@@ -1,0 +1,19 @@
+using basic_rest_api.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+
+namespace basic_rest_api.Controllers;
+[Route("api/[controller]")]
+[ApiController]
+public class DemoController : ControllerBase
+{
+    private readonly IDemoService _demoService;
+    public DemoController(IDemoService demoService)
+    {
+        _demoService = demoService;
+    }
+    [HttpGet]
+    public ActionResult Get()
+    {
+        return Content(_demoService.SayHello());
+    }
+}
