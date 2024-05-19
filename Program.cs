@@ -8,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<IPostService,PostService>();
 builder.Services.AddSingleton<IDemoService,DemoService>();
+builder.Services.AddScoped<IScopedService,ScopedService>();
+builder.Services.AddTransient<ITransientService,TransientService>();
+builder.Services.AddSingleton<ISingletonService,SingletonService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
