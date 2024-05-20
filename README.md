@@ -50,3 +50,7 @@
 #### 1. This feature was introduced in C# 9.0.
 #### 2. When the list is declared as List<Post>, the type is known, so it is not necessary to use new Post() here when adding new elements. The type specification can be omitted for constructors, such as new().
 
+# Group registration
+#### As the project grows, we may have more and more services. If we register all services in Program.cs, this file will be very large. For this case, we can use group registration to register multiple services at once.
+##### 1.  Extension method for the IServiceCollection interface
+##### 2.  It is used to register all services at once in the Program.cs file
