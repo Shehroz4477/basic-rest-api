@@ -15,14 +15,6 @@ public class LifeTimeController : ControllerBase
         _transientService = transientService;
         _singletonService = singletonService;
     }
-    [HttpGet]
-    public ActionResult Get()
-    {
-        var scopedServiceMessage = _scopedService.SayHello();
-        var transientServiceMessage = _transientService.SayHello();
-        var singletonServiceMessage = _singletonService.SayHello();
-        return Content($"{scopedServiceMessage}{Environment.NewLine}{transientServiceMessage}{Environment.NewLine}{singletonServiceMessage}{Environment.NewLine}"); 
-    }
     [HttpGet("GetLifeTime")]
     public ActionResult GetLifeTime()
     {
