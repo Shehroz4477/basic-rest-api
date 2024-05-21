@@ -6,16 +6,22 @@ namespace basic_rest_api.Controllers;
 [ApiController]
 public class ActionInjectonController : ControllerBase
 {
-    private readonly ITransientService _transientService;
-    public ActionInjectonController(ITransientService transientService)
+    private readonly IScopedService _scopedService;
+    public ActionInjectonController(IScopedService scopedService)
     {
-        _transientService = transientService;
+        _scopedService = scopedService;
     }
     [HttpGet]
-    public ActionResult Get([FromServices] IScopedService scopedService)
+    // public ActionResult Get([FromServices] IScopedService scopedService)
+    // {
+    //     var scopedServiceMessage = scopedService.SayHello();
+    //     var transientServiceMessage = _transientService.SayHello();
+    //     return Content($"{scopedServiceMessage}{Environment.NewLine}{transientServiceMessage}{Environment.NewLine}"); 
+    // }
+    public ActionResult Get([FromServices] ITransientService transientService)
     {
-        var scopedServiceMessage = scopedService.SayHello();
-        var transientServiceMessage = _transientService.SayHello();
+        var transientServiceMessage = transientService.SayHello();
+        var scopedServiceMessage = _scopedService.SayHello();
         return Content($"{scopedServiceMessage}{Environment.NewLine}{transientServiceMessage}{Environment.NewLine}"); 
     }
 }
