@@ -8,6 +8,8 @@ public static class ScopedServiceCollectionExtension
     {
         services.AddScoped<IScopedService,ScopedService>();
         services.AddScoped<IPostService,PostService>();
+        services.AddKeyedScoped<IDoorConfigService,HidDoorConfigService>("hidDoorConfigService");
+        services.AddKeyedScoped<IDoorConfigService,AsixDoorConfigService>("axisDoorConfigService");
         return services;
     }
 }
