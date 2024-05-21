@@ -54,3 +54,9 @@
 #### As the project grows, we may have more and more services. If we register all services in Program.cs, this file will be very large. For this case, we can use group registration to register multiple services at once.
 ##### 1.  Extension method for the IServiceCollection interface
 ##### 2.  It is used to register all services at once in the Program.cs file
+
+# Action injection
+#### Sometimes, one controller may need many services but may not need all of them for all actions. If we inject all the dependencies from the constructor, the constructor method will be large. For this case, we can use action injection to inject dependencies only when needed. 
+##### 1. The [FromServices] attribute enables the service container to inject dependencies when needed without using constructor injection.
+##### 2. Keep in mind that this kind of action injection only works for actions in the controller.
+##### 3. Additionally, since ASP.NET Core 7.0, the [FromServices] attribute can be omitted as the framework will automatically attempt to resolve any complex type parameters registered in the DI container.
