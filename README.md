@@ -60,3 +60,7 @@
 ##### 1. The [FromServices] attribute enables the service container to inject dependencies when needed without using constructor injection.
 ##### 2. Keep in mind that this kind of action injection only works for actions in the controller.
 ##### 3. Additionally, since ASP.NET Core 7.0, the [FromServices] attribute can be omitted as the framework will automatically attempt to resolve any complex type parameters registered in the DI container.
+
+# Using primary constructors to inject dependencies
+#### .NET 8 and C# 12, we can use the primary constructor to inject dependencies. A primary constructor allows us to declare the constructor parameters directly in the class declaration, instead of using a separate constructor method.
+#### If a class declares a parameter named postService in the class declaration, it cannot be accessed as a class member using this.postService or from external code. 
