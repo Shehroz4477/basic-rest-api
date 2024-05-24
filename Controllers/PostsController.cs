@@ -8,22 +8,22 @@ namespace basic_rest_api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class PostsController : ControllerBase
+public class PostsController(IPostService postService) : ControllerBase
 {
-    private readonly IPostService _postService;
-    public PostsController(IPostService postService)
-    {
+    // private readonly IPostService _postService;
+    // public PostsController(IPostService postService)
+    // {
         // Note that we use the new() constructor to create an instance of the service. 
         // That means the controller is coupled with the PostsService class. 
         // We will see how to decouple the controller and the service in the DI concept.
-        _postService = postService;
-    }
+    //     _postService = postService;
+    // }
     //  [HttpGet("{id}")] attribute to indicate the URL of the operation. 
     //  The URL will be mapped to /api/posts/{id}.
     [HttpGet("{id}")]
     public async Task<ActionResult<Post>> GetPost(int id)
     {
-        var post = await _postService.GetPost(id);
+        var post = await postService.GetPost(id);
         if(post == null)
         {
             return NotFound();
@@ -33,7 +33,7 @@ public class PostsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Post>> CreatePost(Post post)
     {
-        await _postService.CreatePost(post);
+        await postService.CreatePost(post);
         // the built-in CreatedAtAction, which returns a response message with the specified action name, 
         // route values, and post. For this case, it will call the GetPost() action to return the newly 
         // created post.
@@ -46,7 +46,7 @@ public class PostsController : ControllerBase
         {
             return BadRequest();
         }
-        var updatePost =  await _postService.UpdatePost(id, post);
+        var updatePost =  await postService.UpdatePost(id, post);
         if(updatePost == null)
         {
             return NotFound();
@@ -56,12 +56,12 @@ public class PostsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<Post>>> GetPosts()
     {
-        return Ok(await _postService.GetAllPosts());
+        return Ok(await postService.GetAllPosts());
     }
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeletePost(int id)
     {
-        var post = await _postService.DeletePost(id);
+        var post = await postService.DeletePost(id);
         if(post != null)
         {
             return NoContent();
